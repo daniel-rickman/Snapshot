@@ -14,6 +14,13 @@
     <None Remove="open.png" />
     <None Remove="pause.png" />
     <None Remove="play.png" />
+    <None Remove="resources\capture.png" />
+    <None Remove="resources\download.png" />
+    <None Remove="resources\help.png" />
+    <None Remove="resources\pause.png" />
+    <None Remove="resources\play.png" />
+    <None Remove="resources\stop.png" />
+    <None Remove="resources\upload.png" />
     <None Remove="stop.png" />
     <None Remove="upload.png" />
   </ItemGroup>
@@ -23,19 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="capture.png" />
-    <Resource Include="download.png" />
-    <Resource Include="help.png" />
-    <Resource Include="pause.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="play.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="stop.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="upload.png" />
+    <Resource Include="resources\capture.png" />
+    <Resource Include="resources\download.png" />
+    <Resource Include="resources\help.png" />
+    <Resource Include="resources\pause.png" />
+    <Resource Include="resources\play.png" />
+    <Resource Include="resources\stop.png" />
+    <Resource Include="resources\upload.png" />
   </ItemGroup>
 
 </Project>

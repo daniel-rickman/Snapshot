@@ -20,30 +20,30 @@
         </Grid.RowDefinitions>
         <ToolBar DockPanel.Dock="Top">
             <Button Command="ApplicationCommands.Open" ToolTip="Load">
-                <Image Source="/upload.png" MaxWidth="32" MaxHeight="32" />
+                <Image Source="/resources/upload.png" MaxWidth="32" MaxHeight="32" />
             </Button>
             <Separator />
             <Button Command="MediaCommands.Play" ToolTip="Play">
-                <Image Source="/play.png" MaxWidth="32" MaxHeight="32"/>
+                <Image Source="/resources/play.png" MaxWidth="32" MaxHeight="32"/>
             </Button>
             <Button Command="MediaCommands.Pause" ToolTip="Pause">
-                <Image Source="/pause.png" MaxWidth="32" MaxHeight="32"/>
+                <Image Source="/resources/pause.png" MaxWidth="32" MaxHeight="32"/>
             </Button>
             <Button Command="MediaCommands.Stop" ToolTip="Stop">
-                <Image Source="/stop.png" MaxWidth="32" MaxHeight="32"/>
+                <Image Source="/resources/stop.png" MaxWidth="32" MaxHeight="32"/>
             </Button>
             <Separator/>
             <Button Click="Capture_Executed" ToolTip="Capture Image">
-                <Image Source="/capture.png" MaxWidth="32" MaxHeight="32" />
+                <Image Source="/resources/capture.png" MaxWidth="32" MaxHeight="32" />
             </Button>
             <Separator/>
             <Button Click="Download_Executed" ToolTip="Set Image Location">
-                <Image Source="/download.png" MaxWidth="32" MaxHeight="32"/>
+                <Image Source="/resources/download.png" MaxWidth="32" MaxHeight="32"/>
             </Button>
             <TextBox Name="textDownloadFolder" IsReadOnly="True" MinWidth="128">/</TextBox>
             <Separator/>
             <Button Click="Help_Executed" ToolTip="Help">
-                <Image Source="/help.png" MaxWidth="32" MaxHeight="32"/>
+                <Image Source="/resources/help.png" MaxWidth="32" MaxHeight="32"/>
             </Button>
         </ToolBar>
 
