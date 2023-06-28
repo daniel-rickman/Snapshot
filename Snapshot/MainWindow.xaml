@@ -1,0 +1,75 @@
+﻿<Window x:Class="Snapshot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Snapshot" Width="Auto" Height="Auto" SizeToContent="WidthAndHeight"
+        KeyDown="OnKeyDown">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" CanExecute="Upload_CanExecute" Executed="Upload_Executed" />
+        <CommandBinding Command="MediaCommands.Play" CanExecute="Play_CanExecute" Executed="Play_Executed" />
+        <CommandBinding Command="MediaCommands.Pause" CanExecute="Pause_CanExecute" Executed="Pause_Executed" />
+        <CommandBinding Command="MediaCommands.Stop" CanExecute="Stop_CanExecute" Executed="Stop_Executed" />
+    </Window.CommandBindings>
+    <Grid MouseWheel="Grid_MouseWheel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Command="ApplicationCommands.Open" ToolTip="Load">
+                <Image Source="/upload.png" MaxWidth="32" MaxHeight="32" />
+            </Button>
+            <Separator />
+            <Button Command="MediaCommands.Play" ToolTip="Play">
+                <Image Source="/play.png" MaxWidth="32" MaxHeight="32"/>
+            </Button>
+            <Button Command="MediaCommands.Pause" ToolTip="Pause">
+                <Image Source="/pause.png" MaxWidth="32" MaxHeight="32"/>
+            </Button>
+            <Button Command="MediaCommands.Stop" ToolTip="Stop">
+                <Image Source="/stop.png" MaxWidth="32" MaxHeight="32"/>
+            </Button>
+            <Separator/>
+            <Button Click="Capture_Executed" ToolTip="Capture Image">
+                <Image Source="/capture.png" MaxWidth="32" MaxHeight="32" />
+            </Button>
+            <Separator/>
+            <Button Click="Download_Executed" ToolTip="Set Image Location">
+                <Image Source="/download.png" MaxWidth="32" MaxHeight="32"/>
+            </Button>
+            <TextBox Name="textDownloadFolder" IsReadOnly="True" MinWidth="128">/</TextBox>
+            <Separator/>
+            <Button Click="Help_Executed" ToolTip="Help">
+                <Image Source="/help.png" MaxWidth="32" MaxHeight="32"/>
+            </Button>
+        </ToolBar>
+
+        <MediaElement Name="mediaPlayer" Grid.Row="1" LoadedBehavior="Manual" MaxWidth="1280" MaxHeight="720" />
+
+        <StatusBar Grid.Row="2">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Name="labelProgress">00:00:00</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="1" HorizontalContentAlignment="Stretch">
+                <Slider Name="slider" Thumb.DragStarted="Slider_DragStarted"  Thumb.DragCompleted="Slider_DragCompleted" ValueChanged="Slider_ValueChanged" />
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2">
+                <ProgressBar Name="volumeBar" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mediaPlayer, Path=Volume}" Foreground="RoyalBlue" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
