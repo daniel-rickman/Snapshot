@@ -14,7 +14,7 @@ namespace Snapshot
     public partial class MainWindow : Window
     {
 
-        private string downloadLocation = "/";
+        private string downloadLocation = "";
         private bool IsPlaying = false;
         private bool IsDragging = false;
 
@@ -64,7 +64,7 @@ namespace Snapshot
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 textDownloadFolder.Text = dialog.FileName;
-                downloadLocation = dialog.FileName;
+                downloadLocation = dialog.FileName + "/";
             }
         }
 
@@ -174,7 +174,8 @@ namespace Snapshot
             encoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
 
             string fileName = Guid.NewGuid().ToString() + ".png";
-            FileStream fs = new FileStream(downloadLocation + "/" + fileName, FileMode.Create);
+
+            FileStream fs = new FileStream(downloadLocation + fileName, FileMode.Create);
             encoder.Save(fs);
             fs.Close();
         }
